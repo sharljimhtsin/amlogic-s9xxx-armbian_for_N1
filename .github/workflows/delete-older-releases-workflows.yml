@@ -115,13 +115,13 @@ jobs:
           delete_tags: ${{ github.event.inputs.delete_tags }}
           delete_tag_pattern: ${{ github.event.inputs.delete_tag_pattern }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_DEB }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete older workflow runs and artifacts
         uses: Mattraks/delete-workflow-runs@main
         if: ${{ github.event.inputs.delete_workflow_runs }} == 'true'
         with:
-          token: ${{ secrets.GITHUB_TOKEN_DEB }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           retain_days: ${{ github.event.inputs.retain_days }}
           keep_minimum_runs: ${{ github.event.inputs.keep_minimum_runs }}
